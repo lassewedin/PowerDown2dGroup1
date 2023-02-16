@@ -16,7 +16,7 @@ public class HUD : MonoBehaviour
 	void Start()
     {
         SetScore(0);
-        SetWave(0);
+        SetWave(1);
         SetHealth(100);
     }
 
