@@ -21,14 +21,17 @@ public class HUD : MonoBehaviour
     }
 
     public static void SetScore(int score) {
+        if (_instance == null) return;
         _instance.scoreLabel.text = score.ToString("D7");
 	}
 
     public static void SetWave(int wave) {
+        if (_instance == null) return;
         _instance.waveLabel.text = string.Format("Wave: {0}", wave);
 	}
 
     public static void SetHealth(int healthPoints) {
+        if (_instance == null) return;
         _instance.healthBar.value = Mathf.Clamp01(healthPoints / 100.0f);
 	}
 }

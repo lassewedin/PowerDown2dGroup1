@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-  [HideInInspector]public int health = 0;
+  [HideInInspector] public int health { 
+        get { return m_health; }
+        set { m_health = value; HUD.SetHealth(m_health); }
+    }
+  private int m_health;
+
   public int maxHealth = 100;
   
   public bool isDead
