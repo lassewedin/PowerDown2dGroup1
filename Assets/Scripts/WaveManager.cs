@@ -60,7 +60,7 @@ public class WaveManager : MonoBehaviour
         currentWaveIndex++;
         canSpawnEnemy = true;
         nextSpawnTime = Time.time + secondsBetweenWaves;
-        HUD.SetWave(currentWaveIndex + 1);
+        HUD.SetWave(currentWaveIndex);
     }
 
     public void SpawnWave()
