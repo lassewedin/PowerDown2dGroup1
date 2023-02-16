@@ -7,6 +7,8 @@ public class HUD : MonoBehaviour
     public TMP_Text waveLabel;
     public HealthBar healthBar;
 
+    public PowerDownSelect powerDownSelection;
+
     private static HUD _instance;
 
 	private void Awake() {
@@ -33,5 +35,10 @@ public class HUD : MonoBehaviour
     public static void SetHealth(int healthPoints) {
         if (_instance == null) return;
         _instance.healthBar.value = Mathf.Clamp01(healthPoints / 100.0f);
+	}
+
+    public static void ShowPowerDownSelection(bool show) {
+        if (_instance == null) return;
+        _instance.powerDownSelection.Show(show);
 	}
 }

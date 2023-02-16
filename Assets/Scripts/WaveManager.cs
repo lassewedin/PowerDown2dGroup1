@@ -49,15 +49,18 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    void NextAnimationStep() //Will be replaced once we get the powerup selection
+    public void NextAnimationStep() //Will be replaced once we get the powerup selection
     {
+        HUD.ShowPowerDownSelection(true);
         animator.SetTrigger("NextWave");
     }
+
     public void StartNextWave()
     {
         currentWaveIndex++;
         canSpawnEnemy = true;
         nextSpawnTime = Time.time + secondsBetweenWaves;
+        HUD.SetWave(currentWaveIndex + 1);
     }
 
     public void SpawnWave()
