@@ -5,6 +5,7 @@ public class PowerDownSelect : MonoBehaviour
 {
 	public PowerDownCard card1;
 	public PowerDownCard card2;
+	public WaveManager waveManager;
 
 	public void Start() {
 		card1.onClick += OnClickedCard;
@@ -14,6 +15,7 @@ public class PowerDownSelect : MonoBehaviour
 	private void OnClickedCard() {
 		// Hide
 		Show(false);
+		waveManager.StartNextWave();
 	}
 
 	public void Show(bool show) {
