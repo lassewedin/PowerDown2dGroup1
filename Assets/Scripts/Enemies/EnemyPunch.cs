@@ -23,7 +23,7 @@ public class EnemyPunch : EnemyAttack
         // If it hits something...
         if (hit.collider != null)
         {
-
+            int i = 0;
         }
     }
 }

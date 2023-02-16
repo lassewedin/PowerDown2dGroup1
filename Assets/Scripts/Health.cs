@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
     health = health + amount > maxHealth ? maxHealth : health + amount;
   }
   
-  public void Damage(int amount)
+  public virtual void Damage(int amount)
   {
     health = health - amount  < 0 ? 0 : health - amount;
   }
