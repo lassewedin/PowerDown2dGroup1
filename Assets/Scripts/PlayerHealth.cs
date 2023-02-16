@@ -8,4 +8,10 @@ public class PlayerHealth : Health
         get { return base.m_health; }
         set { m_health = value; HUD.SetHealth(m_health); }
     }
+    
+    public override void Damage(int amount)
+    {
+        gameObject.GetComponent<PlayerController>().Hurt();
+        base.Damage(amount);
+    }
 }

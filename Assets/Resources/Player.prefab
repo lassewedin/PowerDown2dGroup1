@@ -54,9 +54,14 @@ MonoBehaviour:
   bobbingTime: 0
   gun: {fileID: 1069766810174319009}
   grapeRenderer: {fileID: 1069766810246734121}
-  normalGrape: {fileID: 21300000, guid: ddf37c8d414739444a13c0174a7dceb6, type: 3}
-  shootGrape: {fileID: 21300000, guid: 71aa3104076f26d4791ba661bc918b71, type: 3}
+  normalGrapeNormal: {fileID: 21300000, guid: ddf37c8d414739444a13c0174a7dceb6, type: 3}
+  shootGrapeNormal: {fileID: 21300000, guid: 71aa3104076f26d4791ba661bc918b71, type: 3}
+  normalGrapeRaisin: {fileID: 21300000, guid: 3c83c929f4cd0e745bdea744a2145253, type: 3}
+  shootGrapeRaisin: {fileID: 21300000, guid: 2bc25cbae0573f74c89277a87d359ec0, type: 3}
   hurtGrape: {fileID: 21300000, guid: 07b2f8f1c833e104bb4fd9dc697a0896, type: 3}
+  deadGrape: {fileID: 21300000, guid: fd7067ae4bbd8424ebc380143ed1c5e6, type: 3}
+  startPosition: {x: 0, y: 0}
+  isDead: 0
 --- !u!70 &1069766808899240918
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -107,7 +112,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!1 &1069766809034065548
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,13 +437,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3073e6d64d9546144a6bd5ff719ff245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1069766808899240915}
   projectileTemplate: {fileID: 1069766809334763306}
   worldTransform: {fileID: 0}
   recoilTransform: {fileID: 1069766810235450913}
-  gunSprite: {fileID: 1069766809150644718}
+  gunRenderer: {fileID: 1069766809150644718}
+  gunUnloaded: {fileID: 21300000, guid: 22b49ea0b6813f44694d22ad11767279, type: 3}
+  gunLoaded: {fileID: 21300000, guid: 7960619f7ff3dde498c53f6bdbbb21d6, type: 3}
   projectileOffset: {x: 0, y: 0.2}
   hasShootFace: 0
-  ammo: 1
 --- !u!1 &1069766810235450912
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,6 +76,7 @@ public class PlayerGun : MonoBehaviour {
     public void Shoot(float angle) {
         GunProjectile proj = Object.Instantiate(projectileTemplate, worldTransform);
         projectileTemplate.gameObject.SetActive(false);
+        proj.spawner = transform.root.gameObject;
         proj.direction = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
         proj.transform.position = transform.position + (Vector3)projectileOffset + (Vector3)proj.direction * 2f;
         proj.transform.rotation = Quaternion.Euler(0f, 0f, angle);

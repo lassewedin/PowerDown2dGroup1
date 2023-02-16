@@ -824,24 +824,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88ab4ce7289f594ca950a0cfa02cd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenWaves: 1
+  secondsBetweenWaves: 5
   waves:
   - waveName: Are you a noob?
-    numberOfEnemies: 5
+    numberOfEnemies: 10
     enemyTypes:
     - {fileID: 2665499801972852155, guid: 90a78c8e6618c374e9e6826cb007e69e, type: 3}
     spawnIntervalSeconds: 2
-  - waveName: Bring it on
-    numberOfEnemies: 8
+  - waveName: Bring It On!
+    numberOfEnemies: 15
     enemyTypes:
     - {fileID: 2665499801972852155, guid: fac384f613602434e8698365ba84d7ac, type: 3}
     - {fileID: 2665499801972852155, guid: 90a78c8e6618c374e9e6826cb007e69e, type: 3}
     spawnIntervalSeconds: 1
-  - waveName: HELP!?
-    numberOfEnemies: 1
+  - waveName: Give Me Pain!
+    numberOfEnemies: 15
     enemyTypes:
     - {fileID: 2665499801972852155, guid: fac384f613602434e8698365ba84d7ac, type: 3}
-    spawnIntervalSeconds: 0
+    - {fileID: 2665499801972852155, guid: 90a78c8e6618c374e9e6826cb007e69e, type: 3}
+    spawnIntervalSeconds: 0.5
+  - waveName: Not Enough!
+    numberOfEnemies: 20
+    enemyTypes:
+    - {fileID: 2665499801972852155, guid: fac384f613602434e8698365ba84d7ac, type: 3}
+    - {fileID: 2665499801972852155, guid: 90a78c8e6618c374e9e6826cb007e69e, type: 3}
+    spawnIntervalSeconds: 0.4
+  - waveName: More! More!
+    numberOfEnemies: 25
+    enemyTypes:
+    - {fileID: 2665499801972852155, guid: fac384f613602434e8698365ba84d7ac, type: 3}
+    - {fileID: 2665499801972852155, guid: 90a78c8e6618c374e9e6826cb007e69e, type: 3}
+    spawnIntervalSeconds: 0.5
+  - waveName: Send Help!
+    numberOfEnemies: 30
+    enemyTypes:
+    - {fileID: 2665499801972852155, guid: fac384f613602434e8698365ba84d7ac, type: 3}
+    - {fileID: 2665499801972852155, guid: 90a78c8e6618c374e9e6826cb007e69e, type: 3}
+    spawnIntervalSeconds: 1
+  - waveName: Last Wave!
+    numberOfEnemies: 50
+    enemyTypes:
+    - {fileID: 2665499801972852155, guid: fac384f613602434e8698365ba84d7ac, type: 3}
+    - {fileID: 2665499801972852155, guid: 90a78c8e6618c374e9e6826cb007e69e, type: 3}
+    spawnIntervalSeconds: 1
   enemySpawnPoints:
   - {fileID: 0}
   - {fileID: 0}
