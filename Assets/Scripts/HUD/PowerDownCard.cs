@@ -23,9 +23,11 @@ public class PowerDownCard : MonoBehaviour
 	}
 
     public void OnClicked() {
+        PowerDownManager.m_ActivePowerDowns.Add(powerDown.GetType());
         powerDown?.Activate();
-        powerDown = null;
 
+
+        powerDown = null;
         onClick?.Invoke();
 	}
 }

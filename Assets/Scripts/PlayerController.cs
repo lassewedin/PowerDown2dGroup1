@@ -75,19 +75,19 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Input.GetKey("d")) {
-            deltaPosition.x += speed.x * Time.fixedDeltaTime;
+            deltaPosition.x += speed.x * Time.fixedDeltaTime * PlayerAttributes.movementSpeed;
             didMove = true;
         }
         if (Input.GetKey("a")) {
-            deltaPosition.x -= speed.x * Time.fixedDeltaTime;
+            deltaPosition.x -= speed.x * Time.fixedDeltaTime * PlayerAttributes.movementSpeed;
             didMove = true;
         }
         if (Input.GetKey("w")) {
-            deltaPosition.y += speed.x * Time.fixedDeltaTime;
+            deltaPosition.y += speed.x * Time.fixedDeltaTime * PlayerAttributes.movementSpeed;
             didMove = true;
         }
         if (Input.GetKey("s")) {
-            deltaPosition.y -= speed.x * Time.fixedDeltaTime;
+            deltaPosition.y -= speed.x * Time.fixedDeltaTime * PlayerAttributes.movementSpeed;
             didMove = true;
         }
 

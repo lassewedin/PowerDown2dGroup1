@@ -32,7 +32,7 @@ public class GunProjectile : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        Vector2 deltaPosition = direction.normalized * speed * Time.fixedDeltaTime;
+        Vector2 deltaPosition = direction.normalized * speed * Time.fixedDeltaTime * PlayerAttributes.projectileSpeed;
         transform.position = new Vector3(transform.position.x + deltaPosition.x, transform.position.y + deltaPosition.y, 0f); // (Vector3)(transform.position + (Vector3)deltaPosition);
     }
 

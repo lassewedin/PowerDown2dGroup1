@@ -5,3 +5,5 @@ Logs/
 Temp/
 obj/
 *.suo
+Build/
+ProjectSettings/

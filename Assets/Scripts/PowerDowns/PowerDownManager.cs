@@ -6,8 +6,10 @@ using UnityEngine;
 
 public static class PowerDownManager
 {
-	public static List<IPowerDown> m_PowerDowns = new List<IPowerDown>();
+	public static HashSet<Type> m_ActivePowerDowns = new HashSet<Type>();
 
+	public static List<IPowerDown> m_PowerDowns = new List<IPowerDown>();
+	
     static PowerDownManager()
     {
         Type interfaceType = typeof(IPowerDown);
@@ -26,6 +28,10 @@ public static class PowerDownManager
 		} catch {
 			Debug.LogError(string.Format("Failed to instantiate '{0}'", type.Name));
 		}
+	}
+
+	public static bool IsPowerDownActive<T>() where T : IPowerDown {
+		return m_ActivePowerDowns.Contains(typeof(T));
 	}
 
 }
