@@ -57,3 +57,13 @@ public class MovementDown : IPowerDown
 		PlayerAttributes.movementSpeed = Mathf.Max(0.1f, PlayerAttributes.movementSpeed - 0.25f);
 	}
 }
+
+public class SemiAmmo : IPowerDown
+{
+	public string title { get { return "Semi-automatic"; } }
+	public string description { get { return "Gun becomes semi-automatic"; } }
+
+    public void Activate() {
+		PlayerAttributes.ammo = Ammo.semiShot;
+	}
+}

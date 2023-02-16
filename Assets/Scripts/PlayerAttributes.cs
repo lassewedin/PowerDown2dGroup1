@@ -19,7 +19,7 @@ public static class PlayerAttributes
 
 		maxHealth = 100;
 		gunDamage = 100;
-		fireCoolDown = 0.2f;
+		fireCoolDown = 1.0f;
 		movementSpeed = 1.0f;
 		projectileSpeed = 1.0f;
 

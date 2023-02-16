@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-  [HideInInspector] public int health { 
-        get { return m_health; }
-        set { m_health = value; HUD.SetHealth(m_health); }
-    }
-  private int m_health;
+ public virtual int health { 
+    get { return m_health; }
+    set { m_health = value; }
+  }
+  public int m_health = 100;
 
   public int maxHealth = 100;
   

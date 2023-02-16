@@ -19,7 +19,7 @@ public class TitleScreen : MonoBehaviour
 		// Hide menu
 		SceneManager.LoadScene("Main");
 
-		// Init game..
+		PlayerAttributes.Initialize();
 	}
 
 	public void OnBtnQuit() {

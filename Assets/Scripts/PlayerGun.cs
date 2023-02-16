@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerGun : MonoBehaviour {
 
+    public PlayerController playerController;
     public GunProjectile projectileTemplate;
     public Transform worldTransform;
     public Transform recoilTransform;
-    public SpriteRenderer gunSprite;
+    public SpriteRenderer gunRenderer;
+    public Sprite gunUnloaded;
+    public Sprite gunLoaded;
 
     public Vector2 projectileOffset;
 
@@ -24,18 +27,22 @@ public class PlayerGun : MonoBehaviour {
     void Update() {
         cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector2 deltaPosition = new Vector2(cameraRay.origin.x, cameraRay.origin.y) - new Vector2(transform.position.x, transform.position.y);
-        gunSprite.flipY = deltaPosition.x < 0;
+        gunRenderer.flipY = deltaPosition.x < 0;
 
         float angle = Mathf.Atan2(deltaPosition.x, deltaPosition.y) * Mathf.Rad2Deg;
         angle = -angle + 90f;
         //Debug.Log("Angle: " + angle);
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
+        if (playerController.isDead) {
+            return;
+        }
+
         //Semi
         if (PlayerAttributes.ammo == Ammo.semiShot && Input.GetMouseButtonDown(0) && fireCoolDown < 0) {
             Shoot(angle);
             recoil = 0.2f;
-            fireCoolDown = PlayerAttributes.fireCoolDown;
+            fireCoolDown = 0.3f * PlayerAttributes.fireCoolDown;
             shootFaceCoolDownn = 0.3f;
         }
 
@@ -43,13 +50,20 @@ public class PlayerGun : MonoBehaviour {
         if (PlayerAttributes.ammo == Ammo.autoShot && Input.GetMouseButton(0) && fireCoolDown < 0) {
             Shoot(angle);
             recoil = 0.2f;
-            fireCoolDown = PlayerAttributes.fireCoolDown;
+            fireCoolDown = 0.15f * PlayerAttributes.fireCoolDown;
             shootFaceCoolDownn = 0.3f;
         }
 
         recoil -= Time.deltaTime;
         fireCoolDown -= Time.deltaTime;
         shootFaceCoolDownn -= Time.deltaTime;
+        
+        if (fireCoolDown > 0) {
+            gunRenderer.sprite = gunUnloaded;
+        } else {
+            gunRenderer.sprite = gunLoaded;
+        }
+        
 
         recoil = Mathf.Max(0f, recoil);
         recoilTransform.localPosition = new Vector3(-recoil, 0f, 0f);

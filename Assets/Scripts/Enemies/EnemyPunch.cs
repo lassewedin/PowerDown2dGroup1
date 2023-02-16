@@ -4,8 +4,26 @@ using UnityEngine;
 
 public class EnemyPunch : EnemyAttack
 {
-    public override void Attack()
+    public float shootCooldown = 1;
+    private float fireCoolDown;
+    public override void Attack(Vector2 direction)
     {
-        Debug.Log("ENEMY PUNCH");
+        if (fireCoolDown < 0) {
+            Punch(direction);
+            fireCoolDown =shootCooldown;
+        }
+        
+        fireCoolDown -= Time.deltaTime;
+    }
+
+    void Punch(Vector2 direction)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction);
+
+        // If it hits something...
+        if (hit.collider != null)
+        {
+
+        }
     }
 }
