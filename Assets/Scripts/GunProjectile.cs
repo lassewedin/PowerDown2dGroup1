@@ -11,7 +11,7 @@ public class GunProjectile : MonoBehaviour {
     public Vector2 direction;
 
     private float timeAlive = 0f;
-    private float timeToLive = 1f;
+    private float timeToLive = 2f;
 
     public float speed;
 
@@ -21,10 +21,10 @@ public class GunProjectile : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //timeAlive += Time.deltaTime;
-        //if (timeAlive > timeToLive && !isTemplate) {
-        //    Destroy(gameObject);
-        //}
+        timeAlive += Time.deltaTime;
+        if (timeAlive > timeToLive && !isTemplate) {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate() {
