@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -19,10 +20,13 @@ public class WaveManager : MonoBehaviour
     public float secondsBetweenWaves;
     [SerializeField] private Wave[] waves;
     public Transform[] enemySpawnPoints;
+    public Animator animator;
+    public TextMeshProUGUI waveName;
 
     private Wave currentWave;
     private int currentWaveIndex;
     private bool canSpawnEnemy = true;
+    private bool canAnimate = false;
     private float nextSpawnTime;
     public void Update()
     {
@@ -31,12 +35,19 @@ public class WaveManager : MonoBehaviour
         
         //UGLY CHECK TO SEE IF THERE'S ANY ENEMIES LEFT
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (totalEnemies.Length == 0 && !canSpawnEnemy && currentWaveIndex+1 != waves.Length)
+        if (totalEnemies.Length == 0 && canAnimate && currentWaveIndex+1 != waves.Length)
         {
-           StartNextWave();
+            waveName.text = waves[currentWaveIndex + 1].waveName;
+            animator.SetTrigger("Complete");
+            canAnimate = false;
+            Invoke(nameof(NextAnimationStep),2);
         }
     }
 
+    void NextAnimationStep() //Will be replaced once we get the powerup selection
+    {
+        animator.SetTrigger("NextWave");
+    }
     public void StartNextWave()
     {
         currentWaveIndex++;
@@ -58,6 +69,7 @@ public class WaveManager : MonoBehaviour
             if (currentWave.numberOfEnemies == 0)
             {
                 canSpawnEnemy = false;
+                canAnimate = true;
             }
         }
     }
