@@ -824,7 +824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88ab4ce7289f594ca950a0cfa02cd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenWaves: 0
+  secondsBetweenWaves: 1
   waves:
   - waveName: Are you a noob?
     numberOfEnemies: 5
@@ -850,6 +850,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  animator: {fileID: 3228556840502706297}
+  waveName: {fileID: 3228556839763503289}
 --- !u!95 &3228556840502706297
 Animator:
   serializedVersion: 4
