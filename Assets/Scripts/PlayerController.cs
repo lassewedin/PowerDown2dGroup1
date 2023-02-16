@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     public Sprite normalGrapeRaisin;
     public Sprite shootGrapeRaisin;
     public Sprite hurtGrape;
-    public Sprite raisinGrape; // die
+    public Sprite deadGrape; // die
 
     public Vector2 startPosition;
 
@@ -28,17 +28,7 @@ public class PlayerController : MonoBehaviour {
     
     private bool isRaisin;
 
-    public void RespawnPlayer() {
-        transform.position = startPosition;
-        grapeRenderer.sprite = normalGrapeNormal;
-        isDead = false;
-        isRaisin = false;
-    }
 
-    public void Die() {
-        grapeRenderer.sprite = raisinGrape;
-        isDead = true;
-    }
 
     // Update is called once per frame
     private void Update() {
@@ -48,7 +38,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Hurt() {
-        hurtCooldown = 1f;
+        hurtCooldown = 0.5f;
     }
     private float hurtCooldown;
 
@@ -56,17 +46,29 @@ public class PlayerController : MonoBehaviour {
         isRaisin = true;
     }
 
+    public void RespawnPlayer() {
+        transform.position = startPosition;
+        grapeRenderer.sprite = normalGrapeNormal;
+        isDead = false;
+        isRaisin = false;
+    }
+
+    public void Die() {
+        grapeRenderer.sprite = deadGrape;
+        isDead = true;
+    }
+
     private void FixedUpdate() {
         Vector2 deltaPosition = new Vector2();
         bool didMove = false;
 
-        if (Input.GetKey("x")) {
-            isRaisin = true;
-        }
+        //if (Input.GetKey("x")) {
+        //    isRaisin = true;
+        //}
 
-        if (Input.GetKey("r")) {
-            //RespawnPlayer();
-        }
+        //if (Input.GetKey("r")) {
+        //    RespawnPlayer();
+        //}
 
         if (isDead) {
             return;
@@ -95,8 +97,10 @@ public class PlayerController : MonoBehaviour {
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x + deltaPosition.x, limits.x, limits.y), Mathf.Clamp(transform.position.y + deltaPosition.y, limits.z, limits.w), transform.position.z);
 
-        if (hurtCooldown > 0) {
-
+        if (isDead) {
+            grapeRenderer.sprite = deadGrape;
+        } else if (hurtCooldown > 0) {
+            grapeRenderer.sprite = hurtGrape;
         } else {
             if (gun.hasShootFace) {
                 if (isRaisin) {
