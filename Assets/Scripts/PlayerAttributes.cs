@@ -1,5 +1,11 @@
 using System.Collections.Generic;
 
+
+public enum Ammo {
+    semiShot,
+    autoShot,
+}
+
 public static class PlayerAttributes
 {
 	public static List<IPowerDown> powerDowns = new List<IPowerDown>();
@@ -13,15 +19,20 @@ public static class PlayerAttributes
 
 		maxHealth = 100;
 		gunDamage = 100;
-		gunFireRate = 1.0f;
+		fireCoolDown = 0.2f;
 		movementSpeed = 1.0f;
+		projectileSpeed = 1.0f;
+
+		ammo = Ammo.autoShot;
 	}
 
 	// Attributes
 	public static int maxHealth;
 	public static int gunDamage;
-	public static float gunFireRate;
+	public static float fireCoolDown;
 	public static float movementSpeed;
+	public static float projectileSpeed;
+    public static Ammo ammo;
 
 	// Add whatever you want or need here ...
 

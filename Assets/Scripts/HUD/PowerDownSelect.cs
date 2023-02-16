@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class PowerDownSelect : MonoBehaviour
 	public WaveManager waveManager;
 
 	public void Start() {
+		UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
 		card1.onClick += OnClickedCard;
 		card2.onClick += OnClickedCard;
 	}
@@ -30,9 +32,9 @@ public class PowerDownSelect : MonoBehaviour
 
 		var allPowerDowns = new List<IPowerDown>(PowerDownManager.m_PowerDowns);
 
-		var firstPowerDown = allPowerDowns[Random.Range(0, allPowerDowns.Count)];
+		var firstPowerDown = allPowerDowns[UnityEngine.Random.Range(0, allPowerDowns.Count)];
 		allPowerDowns.Remove(firstPowerDown);
-		var secondPowerDown = allPowerDowns[Random.Range(0, allPowerDowns.Count)];
+		var secondPowerDown = allPowerDowns[UnityEngine.Random.Range(0, allPowerDowns.Count)];
 
 		card1.SetPowerDown(firstPowerDown);
 		card2.SetPowerDown(secondPowerDown);

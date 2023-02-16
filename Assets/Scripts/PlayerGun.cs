@@ -21,12 +21,6 @@ public class PlayerGun : MonoBehaviour {
     private float fireCoolDown;
     private float shootFaceCoolDownn;
 
-    public enum Ammo {
-        semiShot,
-        autoShot,
-    }
-    public Ammo ammo = Ammo.autoShot;
-
     void Update() {
         cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         Vector2 deltaPosition = new Vector2(cameraRay.origin.x, cameraRay.origin.y) - new Vector2(transform.position.x, transform.position.y);
@@ -38,18 +32,18 @@ public class PlayerGun : MonoBehaviour {
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
         //Semi
-        if (ammo == Ammo.semiShot && Input.GetMouseButtonDown(0) && fireCoolDown < 0) {
+        if (PlayerAttributes.ammo == Ammo.semiShot && Input.GetMouseButtonDown(0) && fireCoolDown < 0) {
             Shoot(angle);
             recoil = 0.2f;
-            fireCoolDown = 0.2f;
+            fireCoolDown = PlayerAttributes.fireCoolDown;
             shootFaceCoolDownn = 0.3f;
         }
 
         //Auto
-        if (ammo == Ammo.autoShot && Input.GetMouseButton(0) && fireCoolDown < 0) {
+        if (PlayerAttributes.ammo == Ammo.autoShot && Input.GetMouseButton(0) && fireCoolDown < 0) {
             Shoot(angle);
             recoil = 0.2f;
-            fireCoolDown = 0.2f;
+            fireCoolDown = PlayerAttributes.fireCoolDown;
             shootFaceCoolDownn = 0.3f;
         }
 
