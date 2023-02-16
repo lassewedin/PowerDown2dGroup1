@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
 	public float speed;
 	public float rotationSpeed;
 
 	private Rigidbody2D rigidbody;
-
 	private PlayerAwarenessController playerAwarenessController;
-
 	private Vector2 targetDirection;
+	private EnemyAttack attack;
 	
 	void Awake()
 	{
 		rigidbody = GetComponent<Rigidbody2D>();
 		playerAwarenessController = GetComponent<PlayerAwarenessController>();
+		attack = GetComponent<EnemyAttack>();
 	}
 	
 	void FixedUpdate()
@@ -65,7 +65,7 @@ public class EnemyMovement : MonoBehaviour
 			else
 			{
 				rigidbody.velocity = Vector2.zero;
-				Debug.Log("ATTACK");
+				if(attack != null) attack.Attack();
 			}
 		}
 	}
