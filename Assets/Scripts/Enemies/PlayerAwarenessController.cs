@@ -8,8 +8,9 @@ public class PlayerAwarenessController : MonoBehaviour
     public Vector2 directionToPlayer { get; private set; }
 
     public float playerAwarenessDistance;
+    public float minDistanceToPlayerBeforeAttack;
 
-    private Transform player;
+    [HideInInspector]public Transform player;
     // Start is called before the first frame update
     void Awake()
     {
