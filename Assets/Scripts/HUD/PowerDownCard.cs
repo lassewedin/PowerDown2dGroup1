@@ -8,19 +8,24 @@ public class PowerDownCard : MonoBehaviour
     public TMP_Text descriptionText;
     public Image image;
 
-    void Start() {
-        SetPowerDown();
-	}
+    public delegate void OnClick();
+    public event OnClick onClick;
 
-    public void SetPowerDown() {
+    private IPowerDown powerDown;
 
-        titleText.text = "Bad Apple";
-        descriptionText.text = "Max health -50";
-        image.sprite = Resources.Load<Sprite>(string.Format("Grapes/Icon_{0:D2}", 2));
+    public void SetPowerDown(IPowerDown powerDown) {
+        this.powerDown = powerDown;
+        titleText.text = powerDown.title;
+        descriptionText.text = powerDown.description;
+        int imageIdx = Mathf.Clamp(Mathf.Abs(powerDown.GetType().GetHashCode()) % 12 + 1, 1, 12);
 
+        image.sprite = Resources.Load<Sprite>(string.Format("Grapes/Icon_{0:D2}", imageIdx));
 	}
 
     public void OnClicked() {
+        powerDown?.Activate();
+        powerDown = null;
 
+        onClick?.Invoke();
 	}
 }

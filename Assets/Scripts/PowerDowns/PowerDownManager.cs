@@ -6,9 +6,9 @@ using UnityEngine;
 
 public static class PowerDownManager
 {
-    private static List<IPowerDown> m_PowerDowns = new List<IPowerDown>();
+	public static List<IPowerDown> m_PowerDowns = new List<IPowerDown>();
 
-    public static void Init()
+    static PowerDownManager()
     {
         Type interfaceType = typeof(IPowerDown);
 		Assembly assembly = interfaceType.Assembly;
