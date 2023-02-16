@@ -11,12 +11,14 @@ public class EnemyController : MonoBehaviour
 	private PlayerAwarenessController playerAwarenessController;
 	private Vector2 targetDirection;
 	private EnemyAttack attack;
+	private Health health;
 	
 	void Awake()
 	{
 		rigidbody = GetComponent<Rigidbody2D>();
 		playerAwarenessController = GetComponent<PlayerAwarenessController>();
 		attack = GetComponent<EnemyAttack>();
+		health = GetComponent<Health>();
 	}
 	
 	void FixedUpdate()
@@ -24,6 +26,10 @@ public class EnemyController : MonoBehaviour
 		UpdateDirection();
 		RotateTowardsTarget();
 		SetVelocity();
+		if (health.isDead)
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	void UpdateDirection()
@@ -31,6 +37,7 @@ public class EnemyController : MonoBehaviour
 		if (playerAwarenessController.awareOfPlayer)
 		{
 			targetDirection = playerAwarenessController.directionToPlayer;
+			GetComponent<SpriteRenderer>().flipX = !(targetDirection.x < 0);
 		}
 		else
 		{
@@ -65,7 +72,7 @@ public class EnemyController : MonoBehaviour
 			else
 			{
 				rigidbody.velocity = Vector2.zero;
-				if(attack != null) attack.Attack();
+				if(attack != null) attack.Attack(playerAwarenessController.directionToPlayer);
 			}
 		}
 	}

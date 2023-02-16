@@ -35,12 +35,17 @@ public class WaveManager : MonoBehaviour
         
         //UGLY CHECK TO SEE IF THERE'S ANY ENEMIES LEFT
         GameObject[] totalEnemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (totalEnemies.Length == 0 && canAnimate && currentWaveIndex+1 != waves.Length)
-        {
-            waveName.text = waves[currentWaveIndex + 1].waveName;
-            animator.SetTrigger("Complete");
-            canAnimate = false;
-            Invoke(nameof(NextAnimationStep),2);
+        if (totalEnemies.Length == 0) {
+            if (canAnimate && currentWaveIndex + 1 != waves.Length) {
+                waveName.text = waves[currentWaveIndex + 1].waveName;
+                animator.SetTrigger("Complete");
+                canAnimate = false;
+                Invoke(nameof(NextAnimationStep), 2);
+            }
+            else //WE ARE DONE!?
+            {
+                Debug.Log("Game finished!");
+            }
         }
     }
 

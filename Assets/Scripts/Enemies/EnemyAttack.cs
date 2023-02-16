@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class EnemyAttack : MonoBehaviour
 {
-    public virtual void Attack(){}
+    public virtual void Attack(Vector2 direction){}
 }
