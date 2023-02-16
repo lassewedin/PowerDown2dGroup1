@@ -190,7 +190,7 @@ MonoBehaviour:
   normalGrapeRaisin: {fileID: 21300000, guid: 3c83c929f4cd0e745bdea744a2145253, type: 3}
   shootGrapeRaisin: {fileID: 21300000, guid: 2bc25cbae0573f74c89277a87d359ec0, type: 3}
   hurtGrape: {fileID: 21300000, guid: 07b2f8f1c833e104bb4fd9dc697a0896, type: 3}
-  deadGrape: {fileID: 21300000, guid: 2bc25cbae0573f74c89277a87d359ec0, type: 3}
+  deadGrape: {fileID: 21300000, guid: fd7067ae4bbd8424ebc380143ed1c5e6, type: 3}
   startPosition: {x: 0, y: 0}
   isDead: 0
 --- !u!4 &16940509
@@ -243,6 +243,7 @@ MonoBehaviour:
   scoreLabel: {fileID: 493860770}
   waveLabel: {fileID: 1826108531}
   healthBar: {fileID: 185429620}
+  powerDownSelection: {fileID: 0}
 --- !u!114 &50652383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,9 +1507,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2282388c498409741a87ec6ad041a121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 50
   isTemplate: 1
   direction: {x: 1, y: 0}
   speed: 10
+  spawner: {fileID: 0}
 --- !u!1 &1173260834
 GameObject:
   m_ObjectHideFlags: 0

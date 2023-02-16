@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour {
         bool didMove = false;
 
         //if (Input.GetKey("x")) {
-        //    isRaisin = true;
+        //    Die();
         //}
 
         //if (Input.GetKey("r")) {
