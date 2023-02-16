@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAwarenessDistance: 40
-  minDistanceToPlayerBeforeAttack: 1
+  minDistanceToPlayerBeforeAttack: 0
   player: {fileID: 0}
 --- !u!114 &2665499801972852152
 MonoBehaviour:

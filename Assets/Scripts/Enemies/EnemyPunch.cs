@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,6 +25,15 @@ public class EnemyPunch : EnemyAttack
         if (hit.collider != null)
         {
             int i = 0;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        var health = collision.gameObject.GetComponent<Health>();
+        if (health != null)
+        {
+            health.Damage(10);
         }
     }
 }
