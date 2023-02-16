@@ -190,7 +190,7 @@ MonoBehaviour:
   normalGrapeRaisin: {fileID: 21300000, guid: 3c83c929f4cd0e745bdea744a2145253, type: 3}
   shootGrapeRaisin: {fileID: 21300000, guid: 2bc25cbae0573f74c89277a87d359ec0, type: 3}
   hurtGrape: {fileID: 21300000, guid: 07b2f8f1c833e104bb4fd9dc697a0896, type: 3}
-  raisinGrape: {fileID: 21300000, guid: 07b2f8f1c833e104bb4fd9dc697a0896, type: 3}
+  deadGrape: {fileID: 21300000, guid: 2bc25cbae0573f74c89277a87d359ec0, type: 3}
   startPosition: {x: 0, y: 0}
   isDead: 0
 --- !u!4 &16940509
