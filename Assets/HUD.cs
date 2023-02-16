@@ -15,13 +15,13 @@ public class HUD : MonoBehaviour
 
 	void Start()
     {
-        SetScore(1234);
-        SetWave(123);
-        SetHealth(40);
+        SetScore(0);
+        SetWave(0);
+        SetHealth(100);
     }
 
     public static void SetScore(int score) {
-        _instance.scoreLabel.text = score.ToString("D8");
+        _instance.scoreLabel.text = score.ToString("D7");
 	}
 
     public static void SetWave(int wave) {

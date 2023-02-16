@@ -12,7 +12,7 @@ public class TitleScreen : MonoBehaviour
 	public TMP_Text highscore;
 
 	public void Start() {
-		highscore.text = string.Format("High score: {0:D8}", PlayerPrefs.GetInt("highscore"));
+		highscore.text = string.Format("High score: {0:D7}", PlayerPrefs.GetInt("highscore"));
 	}
 
 	public void OnBtnNewGame() {
