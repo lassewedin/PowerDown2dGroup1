@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   rotationSpeed: 100
+  dead: {fileID: 6570663228355829200, guid: 1f2715303a361644f8c005424c3dbca8, type: 3}
 --- !u!50 &2665499801972852156
 Rigidbody2D:
   serializedVersion: 4

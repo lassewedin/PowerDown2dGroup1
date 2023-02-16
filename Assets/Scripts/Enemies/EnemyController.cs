@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
 	private Vector2 targetDirection;
 	private EnemyAttack attack;
 	private Health health;
+	public GameObject dead;
 	
 	void Awake()
 	{
@@ -28,6 +29,10 @@ public class EnemyController : MonoBehaviour
 		SetVelocity();
 		if (health.isDead)
 		{
+			var ant = Instantiate(dead);
+			ant.GetComponent<SpriteRenderer>().color = GetComponent<SpriteRenderer>().color;
+			ant.transform.position = this.transform.position;
+			ant.transform.rotation = this.transform.rotation;
 			Destroy(gameObject);
 		}
 	}

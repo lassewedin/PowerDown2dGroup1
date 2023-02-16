@@ -35,6 +35,12 @@ public class PlayerController : MonoBehaviour {
         bobbingTransform.localPosition = new Vector3(0f, Mathf.Sin(bobbingTime * 30f) * 0.1f, 0f);
 
         hurtCooldown -= Time.deltaTime;
+
+        var health = GetComponent<Health>();
+        if (health.isDead)
+        {
+            Die();
+        }
     }
 
     public void Hurt() {

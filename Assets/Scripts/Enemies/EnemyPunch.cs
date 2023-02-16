@@ -33,7 +33,7 @@ public class EnemyPunch : EnemyAttack
         var health = collision.gameObject.GetComponent<Health>();
         if (health != null)
         {
-            health.Damage(10);
+            health.Damage(5);
         }
     }
 }
