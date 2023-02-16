@@ -18,21 +18,26 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate() {
         Vector2 deltaPosition = new Vector2();
+        bool didMove = false;
 
         if (Input.GetKey("d")) {
             deltaPosition.x += speed.x * Time.fixedDeltaTime;
-            bobbingTime += Time.deltaTime;
+            didMove = true;
         }
         if (Input.GetKey("a")) {
             deltaPosition.x -= speed.x * Time.fixedDeltaTime;
-            bobbingTime += Time.deltaTime;
+            didMove = true;
         }
         if (Input.GetKey("w")) {
             deltaPosition.y += speed.x * Time.fixedDeltaTime;
-            bobbingTime += Time.deltaTime;
+            didMove = true;
         }
         if (Input.GetKey("s")) {
             deltaPosition.y -= speed.x * Time.fixedDeltaTime;
+            didMove = true;
+        }
+
+        if (didMove) {
             bobbingTime += Time.deltaTime;
         }
 

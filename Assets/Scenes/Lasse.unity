@@ -1336,6 +1336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8255faffff0403846b42d20a5a8fd52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1823875267}
   followCameraCloseness: 0.5
   homePosition: {x: 0, y: -2}
