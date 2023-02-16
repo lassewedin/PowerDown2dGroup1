@@ -11,6 +11,13 @@ public class PlayerController : MonoBehaviour {
 
     public float bobbingTime;
 
+    public PlayerGun gun;
+
+    public SpriteRenderer grapeRenderer;
+    public Sprite normalGrape;
+    public Sprite shootGrape;
+    public Sprite hurtGrape;
+
     // Update is called once per frame
     private void Update() {
         bobbingTransform.localPosition = new Vector3(0f, Mathf.Sin(bobbingTime * 30f) * 0.1f, 0f);
@@ -43,6 +50,13 @@ public class PlayerController : MonoBehaviour {
 
         transform.position = new Vector3(Mathf.Clamp(transform.position.x + deltaPosition.x, limits.x, limits.y), Mathf.Clamp(transform.position.y + deltaPosition.y, limits.z, limits.w), transform.position.z);
 
-        
+        if (gun.hasShootFace) {
+            grapeRenderer.sprite = shootGrape;
+        } else {
+            grapeRenderer.sprite = normalGrape;
+        }
+        // TODO: hurt grape
+
+        Debug.Log("face: " + gun.hasShootFace);
     }
 }
