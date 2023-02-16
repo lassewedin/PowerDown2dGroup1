@@ -57,6 +57,5 @@ public class PlayerController : MonoBehaviour {
         }
         // TODO: hurt grape
 
-        Debug.Log("face: " + gun.hasShootFace);
     }
 }
