@@ -55,7 +55,18 @@ public class EnemyMovement : MonoBehaviour
 		}
 		else
 		{
-			rigidbody.velocity = transform.up * speed;
+			Vector2 enemyToPlayerVector =playerAwarenessController.player.transform.position - transform.position;
+
+
+			if (enemyToPlayerVector.magnitude > playerAwarenessController.minDistanceToPlayerBeforeAttack)
+			{
+				rigidbody.velocity = transform.up * speed;
+			}
+			else
+			{
+				rigidbody.velocity = Vector2.zero;
+				Debug.Log("ATTACK");
+			}
 		}
 	}
 }
