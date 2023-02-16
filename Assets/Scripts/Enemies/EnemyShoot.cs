@@ -24,11 +24,14 @@ public class EnemyShoot : EnemyAttack
 
 
     public void Shoot(Vector2 direction) {
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        angle =  -angle + 90f;
         GunProjectile proj = Object.Instantiate(projectileTemplate);
         projectileTemplate.gameObject.SetActive(false);
         projectileTemplate.spawner = gameObject;
         proj.direction = direction;
         proj.transform.position = transform.position + (Vector3)proj.direction;
+        proj.transform.rotation = Quaternion.Euler(0f, 0f, -angle);
         proj.gameObject.SetActive(true);
         proj.isTemplate = false;
     }
