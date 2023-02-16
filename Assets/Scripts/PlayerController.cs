@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public Vector2 speed; // horizontal, vertical
+    public Vector4 limits; // left, right, bottom top
 
     // Update is called once per frame
     private void Update() {
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour {
         }
 
 
-        transform.position = new Vector3(transform.position.x + deltaPosition.x, transform.position.y + deltaPosition.y, transform.position.z);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x + deltaPosition.x, limits.x, limits.y), Mathf.Clamp(transform.position.y + deltaPosition.y, limits.z, limits.w), transform.position.z);
+
+        
     }
 }
